@@ -1,0 +1,22 @@
+
+
+<div class="container-fluid">
+
+    <div class="row justify-content-center">
+
+        <div class="col-xl-8 col-lg-7 text-center">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h2 class="m-0 font-weight-bold text-primary">{{article?.title}}</h2>
+                    <h4>Gatunek: {{article?.genre.name}}</h4>
+                    <h4>Data premiery: {{article?.publicationDate | date:'d/M/y'}}</h4>
+                </div>
+                <div class="text-left m-5" [innerHTML]="article.content"></div>
+                <div class="card-footer">
+                    <h4>Autor: {{article?.user.userName}}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

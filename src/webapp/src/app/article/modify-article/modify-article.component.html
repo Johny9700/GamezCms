@@ -1,0 +1,46 @@
+<div class="container-fluid">
+
+    <div class="row justify-content-center">
+
+        <div class="col-xl-8 col-lg-7 text-center">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h2 class="m-0 font-weight-bold text-primary">Tytuł gry: 
+                        <div class="form-group">
+                            <input class="form-control form-control-user" [(ngModel)]="title">
+                        </div>
+                    </h2>
+                    <h4>Gatunek: 
+                        <select class="form-control form-control-lg" [(ngModel)]="genre">
+                            <option *ngFor="let oneGenre of genres">{{oneGenre.name}}</option>
+                        </select>
+                    </h4>
+                    <div class="d-flex align-items-center justify-content-center">
+                        <h4 class="m-2">Data premiery: </h4>
+                        <mat-form-field>
+                            <mat-label></mat-label>
+                            <input matInput [matDatepicker]="picker" [(ngModel)]="date">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker color="primary"></mat-datepicker>
+                        </mat-form-field>  
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center">
+                        <h4 class="m-2">Czy publikować: </h4>
+                        <input style="width:20px; height: 20px;" type="checkbox" class="form-control-user m-2" [(ngModel)]="isPublished">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h4>Treść artykułu:</h4>
+                    <textarea style="width: 100%;" [(ngModel)]="content" rows="20"></textarea>
+                    <h4 class="m-2">Podgląd:</h4>
+                    <div class="text-left m-5" [innerHTML]="content"></div>
+                    <div class="d-flex justify-content-center m-3">
+                        <div class="btn btn-primary btn-user btn-block" style="width: 10rem;" (click)="updateArticle()" >Aktualizuj artykuł</div>
+                    </div>
+                    <h4 *ngIf='isError==true' class="text-danger">Podczas aktualizowania artykułu wystąpił błąd uzupełnij treść i spróbuj ponownie.</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

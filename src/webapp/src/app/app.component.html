@@ -1,0 +1,54 @@
+<nav class="toolbar pl-lg-5 navbar navbar-expand navbar-dark bg-dark topbar mb-4 static-top shadow">
+    
+    <div class="navbar-brand" routerLink='/'>{{title}}&nbsp; &nbsp;</div>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+            <li class="nav-item active dropdown no-arrow" *ngFor="let menuItem of menuItems">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{menuItem.name}}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <div *ngFor="let article of menuItem.articlesList">
+                        <a class="dropdown-item" *ngIf='article.published' [routerLink]="['/article', article.id]">{{article.name}}</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item dropdown no-arrow mx-1" *ngIf='user'>
+            <a routerLink='/admin' class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-wrench"></i>
+            </a>
+        </li>
+
+        <div class="topbar-divider d-none d-sm-block" *ngIf='user'></div>
+
+        <li class="nav-item dropdown no-arrow mx-1" *ngIf='!user'>
+            <a routerLink='/login' class="nav-link dropdown-toggle" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-power-off"></i>
+            </a>
+        </li>
+
+        <li class="nav-item dropdown no-arrow" *ngIf='user' >
+            <a routerLink='/profile' class="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"> 
+                    <span >
+                     {{user}}
+                   </span>
+                </span>
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+
+<div id="content-container" class="main-div">
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+com\example\gamezcms\database\models\Post.class
+com\example\gamezcms\DTO\MenuArticleDTO.class
+com\example\gamezcms\services\Credentials.class
+com\example\gamezcms\DTO\MenuGenreDTO.class
+com\example\gamezcms\database\UserRepository.class
+com\example\gamezcms\services\MenuService.class
+com\example\gamezcms\api\api.class
+com\example\gamezcms\database\models\User.class
+com\example\gamezcms\database\GenreRepository.class
+com\example\gamezcms\services\LoginService.class
+com\example\gamezcms\GamezCmsApplication.class
+com\example\gamezcms\database\models\Genre.class
+com\example\gamezcms\database\PostRepository.class
+com\example\gamezcms\services\RegisterCredentials.class

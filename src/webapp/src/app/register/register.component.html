@@ -1,0 +1,50 @@
+<div class="container">
+
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+
+        <div class="col-xl-10 col-lg-12 col-md-9">
+
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <!-- Nested Row within Card Body -->
+                    <div class="row">
+                        <div class="col-lg-6 d-none d-lg-block">
+                            <img class="img-fluid" style="width: 40rem;" src="/assets/pictures/login.jpg" alt="">
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="p-4">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">Zarejestruj się</h1>
+                                </div>
+                                <div class="user">
+                                    <div class="form-group">
+                                        <input class="form-control form-control-user" [(ngModel)]="username" placeholder="Login">
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control form-control-user" [(ngModel)]="mail" placeholder="Adres e-mail">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control form-control-user" [(ngModel)]="password" placeholder="Hasło">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control form-control-user" [(ngModel)]="password2" placeholder="Powtórzone Hasło">
+                                    </div>
+                                    <div class="btn btn-primary btn-user btn-block" (click)="register()" >Zarejestruj</div>
+                                </div>
+                                <hr>
+                                <div *ngIf="visibleError" class="text-center text-danger" >Nie udało się zarejestrować.<br>Login jest już zajęty.</div>
+                                <div *ngIf="visibleComplete" class="text-center text-success" >Udało się zarejestrować.</div>
+                                <div *ngIf="repeatPassword" class="text-center text-danger" >Nie udało się zarejestrować.<br>Hasła są różne.</div>
+                                <div *ngIf="emptyField" class="text-center text-danger" >Pola nie mogą być puste.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

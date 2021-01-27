@@ -1,0 +1,40 @@
+<div class="container-fluid">
+
+    <div class="row justify-content-center">
+
+        <div class="col-xl-6 col-lg-7 text-center">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h2 class="m-0 font-weight-bold text-primary">Lista gatunków</h2>
+                </div>
+                <div class="card-body text-primary text-left">
+                    <div *ngFor="let genre of genres" class="d-flex align-items-center d-flex justify-content-between m-3">
+                        <h4 *ngIf="!genre.edit">{{genre.name}}</h4>
+                        <input *ngIf="genre.edit" style="width:25rem;" [(ngModel)]="genre.name">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <div *ngIf="genre.edit" class="btn btn-primary btn-user btn-block m-2" style="width: 10rem;" (click)="editGenre(genre)" >Zapisz edycję</div>
+                            <div *ngIf="!genre.edit" class="btn btn-primary btn-user btn-block m-2" style="width: 10rem;" (click)="allowEditionGenre(genre)" >Edytuj gatunek</div>
+                            <div class="btn btn-danger btn-user btn-block m-2" style="width: 10rem;" (click)="deleteGenre(genre.id)" >Usuń gatunek</div>
+                        </div>
+                    </div>
+                    <div *ngIf="deleteError" class="text-danger">
+                        Nie można usunąć gatunku, pod którym znajdują się posty.
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <h4 class="m-2">Dodaj gatunek</h4>
+                        <input style="width:25rem;" [(ngModel)]="newGenre">
+                        <div class="d-flex justify-content-center m-3">
+                            <div class="btn btn-primary btn-user btn-block" style="width: 10rem;" (click)="createGenre()" >Utwórz gatunek</div>
+                        </div>
+                    </div>
+                    <div *ngIf="addError" class="text-danger">
+                        Nie można dodać gatunku który już istnieje.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

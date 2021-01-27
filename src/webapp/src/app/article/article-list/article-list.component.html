@@ -1,0 +1,29 @@
+<div class="container-fluid">
+
+    <div class="row justify-content-center">
+
+        <div class="col-xl-6 col-lg-7 text-center">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h2 class="m-0 font-weight-bold text-primary">Lista artykułów</h2>
+                </div>
+                <div class="card-body text-primary">
+                    <div *ngFor="let genre of menuItems" >
+                        <h4>{{genre.name}}</h4>
+                        <div *ngFor="let article of genre.articlesList">
+                            <a [routerLink]="['/modify-article', article.id]" class="d-flex align-items-center justify-content-center">
+                                <h6>
+                                    {{article.name}}
+                                </h6>
+                                <h6 *ngIf='!article.published'>
+                                     (nie opublikowano)
+                                </h6>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
